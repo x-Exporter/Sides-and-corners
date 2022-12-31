@@ -111,7 +111,7 @@ protected:
 	int B;
 	int C;
 	int D;
-
+public:
 	Quadrilateral()
 	{
 	}
@@ -129,33 +129,95 @@ protected:
 	}
 	void get_info()
 	{
-		cout << "Четырехугольник:" << endl;
+		cout << "\n\nЧетырехугольник:" << endl;
 		cout << "Стороны: a=" << a << " b=" << b << " c=" << c << " d=" << d << endl;
-		cout << "Углы: A=" << A << " B=" << B << " C=" << " D=" << C;
+		cout << "Углы: A=" << A << " B=" << B << " C=" << C << " D=" << D;
 	}
-
-
 };
 
 class Rectangle : public Quadrilateral
 {
+public:
+	Rectangle(int a, int b)
+	{
+		this->a = a;
+		this->b = b;
+		c = a;
+		d = b;
 
+		A = B = C = D = 90;
+	}
+	void get_info()
+	{
+		cout << "\n\nПрямоугольник:" << endl;
+		cout << "Стороны: a=" << a << " b=" << b << " c=" << c << " d=" << d << endl;
+		cout << "Углы: A=" << A << " B=" << B << " C=" << C << " D=" << D;
+	}
 };
 
 class Square : public Quadrilateral
 {
+public:
+	Square(int a)
+	{
+		this->a = a;
+		b = a;
+		c = a;
+		d = a;
 
-
+		A = B = C = D = 90;
+	}
+	void get_info()
+	{
+		cout << "\n\nКвадрат:" << endl;
+		cout << "Стороны: a=" << a << " b=" << b << " c=" << c << " d=" << d << endl;
+		cout << "Углы: A=" << A << " B=" << B << " C=" << C << " D=" << D;
+	}
 };
 
 class Parallelogram : public Quadrilateral
 {
+public:
+	Parallelogram(int a,int b,int A,int B)
+	{
+		this->a = a;
+		this->b = b;
+		c = a;
+		d = b;
 
+		this->A = A;
+		C = A;
+		this->B = B;
+		D = B;
+	}
+	void get_info()
+	{
+		cout << "\n\nПараллелограмм:" << endl;
+		cout << "Стороны: a=" << a << " b=" << b << " c=" << c << " d=" << d << endl;
+		cout << "Углы: A=" << A << " B=" << B << " C=" << C << " D=" << D;
+	}
 
 };
 
 class Rhomb : public Quadrilateral
 {
+public:
+	Rhomb(int a,int A, int B)
+	{
+		this->a = a;
+		b = c = d = a;
+
+		this->A = A;
+		C = A;
+		this->B = B;
+		D = B;
+	}
+	void get_info()
+	{
+		cout << "\n\nРомб:" << endl;
+		cout << "Стороны: a=" << a << " b=" << b << " c=" << c << " d=" << d << endl;
+		cout << "Углы: A=" << A << " B=" << B << " C=" << C << " D=" << D;
+	}
 
 };
 
@@ -175,8 +237,18 @@ int main()
 	Equilateral_triangle equilateral_triangle(30);
 	equilateral_triangle.get_info();
 
+	Quadrilateral quadrilateral (10, 20, 30, 40, 50, 60, 70, 80);
+	quadrilateral.get_info();
 
+	Rectangle rectangle(10,20);
+	rectangle.get_info();
 
+	Square square(20);
+	square.get_info();
 
+	Parallelogram parallelogram(20, 30, 30, 40);
+	parallelogram.get_info();
 
+	Rhomb rhomb(30, 30, 40);
+	rhomb.get_info();
 }
